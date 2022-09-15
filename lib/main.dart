@@ -15,6 +15,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(child: Text('Reincarnation')),
+
     );
   }
 }
