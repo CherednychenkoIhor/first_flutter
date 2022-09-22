@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text('Hello'),
+                const Text('Hi'),
                 TextButton(onPressed: () {}, child: const Text('Show'))
               ],
             )
