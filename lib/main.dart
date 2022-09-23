@@ -1,45 +1,117 @@
+import 'package:first_flutter/utils/colors.dart';
+import 'package:first_flutter/utils/const.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'utils/colors.dart';
 
-class MyApp extends StatelessWidget {
+void main() => runApp(const MaterialApp(
+      home: UserPanel(),
+    ));
+
+class UserPanel extends StatefulWidget {
+  const UserPanel({Key? key}) : super(key: key);
+
+  @override
+  State<UserPanel> createState() => _UserPanelState();
+}
+
+class _UserPanelState extends State<UserPanel> {
+  int _count = 0;
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.deepPurple),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Reincarnation'),
-          centerTitle: true,
+    return Scaffold(
+      backgroundColor: color_scar,
+      appBar: AppBar(
+        title: Text(
+          title,
+          style: const TextStyle(
+              color: rad,
+              fontSize: 32,
+              fontFamily: 'Times New Roman',
+              fontStyle: FontStyle.italic),
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+        centerTitle: true,
+        backgroundColor: Ctitle,
+      ),
+      body: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Hello'),
-                const Text('Show'),
-                TextButton(onPressed: () {}, child: const Text('Show'))
+                twentyFourT,
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.only(right: 252),
+                    ),
+                    Text(
+                      about,
+                      style: const TextStyle(
+                          color: Ctitle,
+                          fontSize: 22,
+                          fontFamily: 'Times New Roman',
+                          fontStyle: FontStyle.italic),
+                    ),
+                  ],
+                ),
+                twentyFourT,
+                Text(
+                  usname,
+                  style: const TextStyle(
+                    fontSize: 36,
+                    color: Ctitle,
+                    fontFamily: 'Lobster',
+                  ),
+                ),
+                fourT,
+                const CircleAvatar(
+                  backgroundImage: AssetImage('assets/nightSky.jpg'),
+                  radius: 44,
+                ),
+                thirteenT,
+                Row(
+                  children: [
+                    ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: mail,
+                      style: ElevatedButton.styleFrom(
+                        primary: transParent,
+                      ),
+                      label: Text(
+                        email,
+                        style: const TextStyle(
+                          color: Ctitle,
+                          fontFamily: 'Times New Roman',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const Padding(padding: EdgeInsets.only(top: 33)),
+                Text(
+                  'Count: $_count',
+                  style: const TextStyle(
+                    fontSize: 18,
+                    color: Ctitle,
+                    fontFamily: 'Times New Roman',
+                  ),
+                ),
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Hi'),
-                TextButton(onPressed: () {}, child: const Text('Show'))
-              ],
-            )
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              print('One more');
-            },
-            backgroundColor: Colors.redAccent,
-            child: const Text("Press")),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _count++;
+          });
+        },
+        backgroundColor: rad,
+        child: ice,
       ),
     );
-  } //
+  }
 }
